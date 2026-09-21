@@ -76,6 +76,6 @@ export function Portfolio() {
   </div>
 }
 
-function AnimatedLetters({ text, className = '' }: { text: string; className?: string }) { return <span className={`animated-letters ${className}`} aria-label={text}>{text.split('').map((letter, index) => <span className="animated-letter" aria-hidden="true" key={`${letter}-${index}`} style={{ '--letter-index': index } as CSSProperties}>{letter === ' ' ? '\u00a0' : letter}</span>)}</span> }
+function AnimatedLetters({ text, className = '' }: { text: string; className?: string }) { return <span className={`animated-letters ${className}`} aria-label={text}>{Array.from(text).map((letter, index) => <span className="animated-letter" aria-hidden="true" key={`${letter}-${index}`} style={{ animationDelay: `${index * 60}ms` } as CSSProperties}>{letter === ' ' ? '\u00a0' : letter}</span>)}</span> }
 function SectionIntro({ number, title }: { number: string; title: string }) { return <div className="section-intro"><span>{number} /</span><h2>{title}</h2></div> }
 function InfoCard({ label, value }: { label: string; value: string }) { return <div className="info-card"><span>{label}</span><strong>{value}</strong></div> }
