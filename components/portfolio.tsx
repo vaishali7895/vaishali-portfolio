@@ -1,6 +1,6 @@
 'use client'
 
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState, type CSSProperties } from 'react'
 import Image from 'next/image'
 import { ArrowUpRight, Check, ChevronRight, Download, Code2, BriefcaseBusiness, Mail, Menu, Moon, Send, Sun, X } from 'lucide-react'
 import { education, profile, projects, services, skills } from '@/data/portfolio'
@@ -53,7 +53,7 @@ export function Portfolio() {
 
     <main>
       <section id="home" className="hero container">
-        <div className="hero-copy"><p className="eyebrow hero-enter hero-enter-1"><span className="status-dot" />{profile.eyebrow}</p><h1 className="hero-enter hero-enter-2">Hi, I&apos;m <em>Vaishali</em><br />Gupta.</h1><p className="hero-lede hero-enter hero-enter-3"><span className="role-highlight">Web Developer</span><br className="desktop-only" /> focused on building modern and responsive web applications.</p><p className="hero-text hero-enter hero-enter-4">Web Developer focused on creating clean user interfaces, interactive web experiences and full-stack applications using modern web technologies.</p><div className="hero-buttons hero-enter hero-enter-5"><a className="button primary" href="#projects">View My Projects <ArrowUpRight size={16} /></a><a className="button secondary" href="#contact">Let&apos;s Work Together <ArrowUpRight size={16} /></a></div><div className="social-row"><span>FIND ME ON</span><a href={profile.github} target="_blank" rel="noreferrer"><Code2 size={16} /> GitHub</a><a href={profile.linkedin} target="_blank" rel="noreferrer"><BriefcaseBusiness size={16} /> LinkedIn</a><a href={`mailto:${profile.email}`}><Mail size={16} /> Email</a></div></div>
+        <div className="hero-copy"><p className="eyebrow hero-enter hero-enter-1"><span className="status-dot" /><AnimatedLetters text={profile.eyebrow} className="role-highlight" /></p><h1 className="hero-enter hero-enter-2">Hi, I&apos;m <em><AnimatedLetters text="Vaishali" /></em><br /><AnimatedLetters text="Gupta." /></h1><p className="hero-lede hero-enter hero-enter-3"><span className="role-highlight hero-role"><AnimatedLetters text="Web Developer" /></span><br className="desktop-only" /> focused on building modern and responsive web applications.</p><p className="hero-text hero-enter hero-enter-4">Web Developer focused on creating clean user interfaces, interactive web experiences and full-stack applications using modern web technologies.</p><div className="hero-buttons hero-enter hero-enter-5"><a className="button primary" href="#projects">View My Projects <ArrowUpRight size={16} /></a><a className="button secondary" href="#contact">Let&apos;s Work Together <ArrowUpRight size={16} /></a></div><div className="social-row"><span>FIND ME ON</span><a href={profile.github} target="_blank" rel="noreferrer"><Code2 size={16} /> GitHub</a><a href={profile.linkedin} target="_blank" rel="noreferrer"><BriefcaseBusiness size={16} /> LinkedIn</a><a href={`mailto:${profile.email}`}><Mail size={16} /> Email</a></div></div>
         <div className="hero-visual"><div className="image-frame"><Image src="/images/profile.png" alt="Professional portrait of Vaishali Gupta" fill priority sizes="(max-width: 768px) 80vw, 420px" /><div className="image-label">AVAILABLE FOR OPPORTUNITIES <span /></div></div><div className="tech-tag tag-one">React <span>◎</span></div><div className="tech-tag tag-two">JavaScript <span>JS</span></div><div className="tech-tag tag-three">Next.js <span>↗</span></div><div className="tech-tag tag-four">Git <span>⌘</span></div></div>
       </section>
 
@@ -76,5 +76,6 @@ export function Portfolio() {
   </div>
 }
 
+function AnimatedLetters({ text, className = '' }: { text: string; className?: string }) { return <span className={`animated-letters ${className}`} aria-label={text}>{text.split('').map((letter, index) => <span className="animated-letter" aria-hidden="true" key={`${letter}-${index}`} style={{ '--letter-index': index } as CSSProperties}>{letter === ' ' ? '\u00a0' : letter}</span>)}</span> }
 function SectionIntro({ number, title }: { number: string; title: string }) { return <div className="section-intro"><span>{number} /</span><h2>{title}</h2></div> }
 function InfoCard({ label, value }: { label: string; value: string }) { return <div className="info-card"><span>{label}</span><strong>{value}</strong></div> }
