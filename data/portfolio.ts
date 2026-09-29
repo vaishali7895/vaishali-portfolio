@@ -15,7 +15,6 @@ export const skills = {
   Database: ['MySQL'],
   'Frameworks / Libraries': ['React', 'CSS'],
   'Developer Tools': ['Git', 'GitHub', 'VS Code'],
-  Productivity: ['Microsoft Office'],
   Languages: ['English', 'Hindi'],
 }
 
