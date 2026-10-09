@@ -4,7 +4,7 @@ export const profile = {
   eyebrow: 'WEB DEVELOPER',
   email: 'vaishalig7895@gmail.com',
   location: 'India',
-  linkedin: 'https://www.linkedin.com/in/vaishali-gupta',
+  linkedin: 'https://www.linkedin.com/in/vaishali-gupta-16bb0b368',
   github: 'https://github.com/vaishali7895',
   summary: 'Motivated and detail-focused Web Developer with a strong grasp of HTML, CSS, JavaScript, and React, focused on building visually appealing and user-friendly web interfaces. Experienced in developing interactive projects and implementing clean, efficient code that improves usability and performance.',
 }
